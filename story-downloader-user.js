@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Story Downloader - Facebook and Instagram
 // @namespace
-// @version      1.1
+// @version      1.2
 // @description  Download stories (videos and images) from Facebook and Instagram.
 // @author       oscar370
 // @match        *.facebook.com/*
