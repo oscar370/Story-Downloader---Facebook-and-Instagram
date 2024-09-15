@@ -1,21 +1,19 @@
 // ==UserScript==
 // @name         Story Downloader - Facebook and Instagram
-// @namespace
-// @version      1.2
+// @namespace    https://github.com/oscar370
+// @version      1.3
 // @description  Download stories (videos and images) from Facebook and Instagram.
 // @author       oscar370
 // @match        *.facebook.com/*
 // @match        *.instagram.com/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=facebook.com
 // @grant        none
-// @license      GPL3
+// @run-at       document-end
 // ==/UserScript==
 
 (function () {
   "use strict";
 
   const createDownloadButton = () => {
-    // Initialization
     const button = document.createElement("button");
     const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const path1 = document.createElementNS(
@@ -23,24 +21,18 @@
       "path"
     );
     const currentUrl = window.location.href;
-    let topBar;
-
-    // Determines the location of the upper div
-    if (currentUrl.includes("facebook")) {
-      topBar = document.querySelector(
-        ".x78zum5.xds687c.xw3qccf.x10l6tqk.xtotuo0"
-      );
-    } else {
-      const topBars = document.querySelectorAll(".x6s0dn4.x78zum5.x1xmf6yo");
-      topBar = Array.from(topBars).find((bar) => bar.clientHeight > 0);
-    }
+    const topBars = currentUrl.includes("facebook")
+      ? Array.from(document.querySelectorAll("div.xtotuo0"))
+      : Array.from(document.querySelectorAll("div.x1xmf6yo"));
+    const topBar = topBars.find((bar) => bar.offsetHeight > 0);
 
     // Button properties
     button.id = "downloadButton";
     Object.assign(button.style, {
-      cursor: "pointer",
       border: "none",
       backgroundColor: "transparent",
+      color: "white",
+      cursor: "pointer",
       zIndex: "9999",
     });
 
@@ -63,16 +55,12 @@
   };
 
   const handleButtonClick = () => {
-    // Initialization
     const dateStr = new Date().toISOString().split("T")[0];
     const currentUrl = window.location.href;
-    const userName = currentUrl.includes("facebook")
-      ? document.querySelector(
-          ".x1i10hfl.x1qjc9v5.xjbqb8w.xjqpnuy.xa49m3k.xqeqjp1.x2hbi6w.x13fuv20.xu3j5b3.x1q0q8m5.x26u7qi.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.x1ypdohk.xdl72j9.x2lah0s.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x2lwn1j.xeuugli.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1n2onr6.x16tdsg8.x1hl2dhg.xggy1nq.x1ja2u2z.x1t137rt.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x1q0g3np.x87ps6o.x1lku1pv.x1rg5ohu.x1a2a7pz.x193iq5w"
-        ).innerText ?? "uknown"
-      : document.querySelector(
-          ".x1i10hfl.xjbqb8w.x1ejq31n.xd10rxx.x1sy0etr.x17r0tee.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.x1ypdohk.xt0psk2.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz.xeuugli._a6hd"
-        ).innerText ?? "uknown";
+    const userNames = currentUrl.includes("facebook")
+      ? Array.from(document.querySelectorAll("span.x1s688f"))
+      : Array.from(document.querySelectorAll("span.x10wlt62"));
+    const userName = userNames.find((user) => user.offsetHeight > 0).innerText;
     const videos = document.querySelectorAll("video");
     let videoUrl = null;
 
@@ -113,7 +101,6 @@
 
     const videoDownload = async () => {
       try {
-        console.log("Descarga del vídeo en curso");
         const response = await fetch(videoUrl);
         const blob = await response.blob();
         const link = document.createElement("a");
@@ -128,20 +115,10 @@
     };
 
     const imageDownload = async () => {
-      let images;
-      let image;
-
-      if (currentUrl.includes("facebook")) {
-        images = document.querySelectorAll(
-          ".xz74otr.xjbqb8w.x3x9cwd.x1o1ewxj.x17qophe.x10l6tqk.xwa60dl.x1cb1t30.xh8yej3.x1ja2u2z"
-        );
-        image = Array.from(images).find((img) => img.clientHeight > 0).src;
-      } else {
-        images = document.querySelectorAll(
-          ".xl1xv1r.x5yr21d.xmz0i5r.x193iq5w.xh8yej3"
-        );
-        image = Array.from(images).find((img) => img.clientHeight > 0).src;
-      }
+      const images = currentUrl.includes("facebook")
+        ? Array.from(document.querySelectorAll("img"))
+        : Array.from(document.querySelectorAll("img.xmz0i5r"));
+      const image = images.find((img) => img.offsetHeight > 0).src;
 
       try {
         const response = await fetch(image);
@@ -173,16 +150,11 @@
     if (currentPath !== previousPath) {
       previousPath = currentPath;
       const visibleButton = document.querySelector("#downloadButton");
+
       if (currentPath.includes("/stories/")) {
-        if (!visibleButton) {
-          setTimeout(() => {
-            createDownloadButton();
-          }, 1000);
-        }
+        !visibleButton && setTimeout(() => createDownloadButton(), 1000);
       } else {
-        if (visibleButton) {
-          removeDownloadButton();
-        }
+        visibleButton && removeDownloadButton();
       }
     }
   };
