@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Story Downloader - Facebook and Instagram
 // @namespace    https://github.com/oscar370
-// @version      1.3.1
+// @version      1.3.2
 // @description  Download stories (videos and images) from Facebook and Instagram.
 // @author       oscar370
 // @match        *.facebook.com/*
 // @match        *.instagram.com/*
 // @grant        none
-// @run-at       document-end
+// @license      GPL3
 // ==/UserScript==
 
 (function () {
@@ -156,6 +156,11 @@
       } else {
         visibleButton && removeDownloadButton();
       }
+    } else if (currentPath.includes("/stories/")) {
+      setTimeout(() => {
+        const visibleButton = document.querySelector("#downloadButton");
+        !visibleButton && createDownloadButton();
+      }, 1000);
     }
   };
 
