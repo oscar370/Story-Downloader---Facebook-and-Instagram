@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Story Downloader - Facebook and Instagram
 // @namespace    https://github.com/oscar370
-// @version      1.3.2
+// @version      1.3.3
 // @description  Download stories (videos and images) from Facebook and Instagram.
 // @author       oscar370
 // @match        *.facebook.com/*
@@ -57,46 +57,57 @@
   const handleButtonClick = () => {
     const dateStr = new Date().toISOString().split("T")[0];
     const currentUrl = window.location.href;
+
     const userNames = currentUrl.includes("facebook")
       ? Array.from(document.querySelectorAll("span.x17z8epw"))
-      : Array.from(document.querySelectorAll("span.x10wlt62"));
-    const userName = userNames.find((user) => user.offsetHeight > 0).innerText;
+      : Array.from(document.querySelectorAll(".x1i10hfl"));
+    const userName = currentUrl.includes("facebook")
+      ? userNames.find((user) => user.offsetHeight > 0).innerText
+      : userNames
+          .find((user) => user.offsetHeight > 0)
+          .pathname.replace(/\//g, "");
     const videos = document.querySelectorAll("video");
     let videoUrl = null;
 
     // Performs the video search
-    for (const video of videos) {
-      if (video.offsetHeight === 0) continue;
+    if (currentUrl.includes("highlight") && currentUrl.includes("facebook")) {
+      videoUrl = document.querySelector("video")?.src;
+    } else {
+      for (const video of videos) {
+        if (video.offsetHeight === 0) continue;
 
-      let reactKey = "";
-      const keys = Object.keys(video);
+        let reactKey = "";
+        const keys = Object.keys(video);
 
-      for (const key of keys) {
-        if (key.includes("__reactFiber")) {
-          reactKey = key.split("__reactFiber")[1];
-          break;
+        for (const key of keys) {
+          if (key.includes("__reactFiber")) {
+            reactKey = key.split("__reactFiber")[1];
+            break;
+          }
         }
+        videoUrl =
+          video.parentElement.parentElement.parentElement.parentElement[
+            `__reactProps${reactKey}`
+          ]?.children[0]?.props?.children?.props?.implementations[1]?.data
+            ?.hdSrc ||
+          video.parentElement.parentElement.parentElement.parentElement[
+            `__reactProps${reactKey}`
+          ]?.children[0]?.props?.children?.props?.implementations[1]?.data
+            ?.sdSrc ||
+          video.parentElement.parentElement.parentElement.parentElement[
+            `__reactProps${reactKey}`
+          ]?.children?.props?.children?.props?.implementations[1]?.data
+            ?.hdSrc ||
+          video.parentElement.parentElement.parentElement.parentElement[
+            `__reactProps${reactKey}`
+          ]?.children?.props?.children?.props?.implementations[1]?.data
+            ?.sdSrc ||
+          video[`__reactFiber${reactKey}`]?.return?.stateNode?.props?.videoData
+            ?.$1?.hd_src ||
+          video[`__reactFiber${reactKey}`]?.return?.stateNode?.props?.videoData
+            ?.$1?.sd_src;
+        if (videoUrl) break;
       }
-      videoUrl =
-        video.parentElement.parentElement.parentElement.parentElement[
-          `__reactProps${reactKey}`
-        ]?.children[0]?.props?.children?.props?.implementations[1]?.data
-          ?.hdSrc ||
-        video.parentElement.parentElement.parentElement.parentElement[
-          `__reactProps${reactKey}`
-        ]?.children[0]?.props?.children?.props?.implementations[1]?.data
-          ?.sdSrc ||
-        video.parentElement.parentElement.parentElement.parentElement[
-          `__reactProps${reactKey}`
-        ]?.children?.props?.children?.props?.implementations[1]?.data?.hdSrc ||
-        video.parentElement.parentElement.parentElement.parentElement[
-          `__reactProps${reactKey}`
-        ]?.children?.props?.children?.props?.implementations[1]?.data?.sdSrc ||
-        video[`__reactFiber${reactKey}`]?.return?.stateNode?.props?.videoData
-          ?.$1?.hd_src ||
-        video[`__reactFiber${reactKey}`]?.return?.stateNode?.props?.videoData
-          ?.$1?.sd_src;
-      if (videoUrl) break;
     }
 
     const videoDownload = async () => {
