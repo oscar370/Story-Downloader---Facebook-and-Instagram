@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Story Downloader - Facebook and Instagram
 // @namespace    https://github.com/oscar370
-// @version      1.3.4
+// @version      1.3.5
 // @description  Download stories (videos and images) from Facebook and Instagram.
 // @author       oscar370
 // @match        *.facebook.com/*
@@ -57,15 +57,14 @@
   const handleButtonClick = () => {
     const dateStr = new Date().toISOString().split("T")[0];
     const currentUrl = window.location.href;
-
     const userNames = currentUrl.includes("facebook")
       ? Array.from(document.querySelectorAll("span.x17z8epw"))
-      : document.querySelector(".x1i10hfl");
-
+      : Array.from(document.querySelectorAll(".x1i10hfl"));
     const userName = currentUrl.includes("facebook")
       ? userNames.find((user) => user.offsetHeight > 0).innerText
-      : userNames.pathname.replace(/\//g, "");
-
+      : userNames
+          .find((user) => user.offsetHeight > 0 && user.offsetHeight < 35)
+          .pathname.replace(/\//g, "");
     const videos = document.querySelectorAll("video");
     let videoUrl = null;
 
