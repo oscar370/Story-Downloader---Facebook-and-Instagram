@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Story Downloader - Facebook and Instagram
 // @namespace    https://github.com/oscar370
-// @version      1.3.5
+// @version      1.3.6
 // @description  Download stories (videos and images) from Facebook and Instagram.
 // @author       oscar370
 // @match        *.facebook.com/*
@@ -71,6 +71,10 @@
     // Performs the video search
     if (currentUrl.includes("highlight") && currentUrl.includes("facebook")) {
       videoUrl = document.querySelector("video")?.src;
+    } else if (currentUrl.includes("facebook") && videos.length) {
+      throw new Error(
+        "Facebook videos from stories (not featured) are not available for download at this time, sorry!"
+      );
     } else {
       for (const video of videos) {
         if (video.offsetHeight === 0) continue;
