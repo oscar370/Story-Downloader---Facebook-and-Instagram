@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Story Downloader - Facebook and Instagram
 // @namespace    https://github.com/oscar370
-// @version      2.0.0
+// @version      2.0.1
 // @description  Download stories (videos and images) from Facebook and Instagram.
 // @author       oscar370
 // @match        *.facebook.com/*
@@ -93,7 +93,7 @@
 
         const filename = this.generateFileName();
 
-        await this.donwloadMedia(this.mediaUrl, filename);
+        await this.downloadMedia(this.mediaUrl, filename);
       } catch (error) {
         console.log(error);
       }
@@ -122,13 +122,16 @@
         (v) => v.offsetHeight > 0
       );
 
-      for (const video of videos) {
-        const videoUrl = this.searchVideoSource(video);
-        if (videoUrl) {
-          this.detectedVideo = true;
-          return videoUrl;
+      if (videos.length !== 0) {
+        for (const video of videos) {
+          const videoUrl = this.searchVideoSource(video);
+          if (videoUrl) {
+            this.detectedVideo = true;
+            return videoUrl;
+          }
         }
       }
+
       return null;
     }
 
@@ -192,12 +195,12 @@
         : userNames
             .find((user) => user.offsetHeight > 0 && user.offsetHeight < 35)
             .pathname.replace(/\//g, "") || "uknown";
-      const extension = this.detectMedia ? "mp4" : "jpg";
+      const extension = this.detectedVideo ? "mp4" : "jpg";
 
-      return `${userName}_${timestamp}.${extension}`;
+      return `${userName}-${timestamp}.${extension}`;
     }
 
-    async donwloadMedia(url, filename) {
+    async downloadMedia(url, filename) {
       try {
         const response = await fetch(url);
         const blob = await response.blob();
