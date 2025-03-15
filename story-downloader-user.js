@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Story Downloader - Facebook and Instagram
 // @namespace    https://github.com/oscar370
-// @version      2.0.2
+// @version      2.0.3
 // @description  Download stories (videos and images) from Facebook and Instagram.
 // @author       oscar370
 // @match        *.facebook.com/*
@@ -58,7 +58,7 @@
         background: transparent;
         color: white;
         cursor: pointer;
-        zIndex: 9999
+        z-index: 9999
       }
       `;
 
