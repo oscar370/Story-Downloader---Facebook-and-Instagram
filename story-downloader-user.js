@@ -191,7 +191,7 @@
       if (this.isFacebookPage) {
         userName =
           Array.from(
-            document.querySelector('[style="--WebkitLineClamp: 1;"]')
+            document.querySelectorAll('[style="--WebkitLineClamp: 1;"]')
           ).find((e) => e.offsetWidth > 0).innerText || "uknown";
       } else {
         userName =
