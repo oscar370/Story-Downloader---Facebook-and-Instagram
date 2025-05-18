@@ -1,0 +1,13 @@
+
+node_modules/
+
+.env
+
+dist/script.dev.user.js
+
+package-lock.json
+
+*.log
+*.tmp
+
+.DS_Store
