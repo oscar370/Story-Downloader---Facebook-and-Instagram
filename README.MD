@@ -20,7 +20,7 @@
 
 ## 🛠️ For Developers
 
-Want to contribute or run it in development mode with live reloading?
+If you want to contribute or run this script in development mode using **TypeScript**, follow these steps:
 
 ### ⚙️ Requirements
 
@@ -29,11 +29,9 @@ Want to contribute or run it in development mode with live reloading?
 - A Chromium-based browser (Chrome, Edge, Brave, etc.)
 - A text editor (e.g. VSCode)
 
----
-
 ### 📢 Important Tampermonkey Setup
 
-✅ To use `file://` paths in development:
+✅ To use `file:///` paths in development:
 
 1. Go to your browser's **Extensions page**.
 2. **Enable Developer Mode.**
@@ -42,15 +40,18 @@ Want to contribute or run it in development mode with live reloading?
 
 > This is required for Tampermonkey to load the script directly from your local machine.
 
----
+
+### 🚀 Clone the repository
+```bash
+git clone https://github.com/oscar370/Story-Downloader---Facebook-and-Instagram.git
+cd Story-Downloader---Facebook-and-Instagram
+```
 
 ### 📦 Install dependencies
 
 ```bash
 npm install
 ```
-
----
 
 ### 🧪 Development Mode
 
@@ -87,8 +88,6 @@ npm run dev
 
 > 📍 Refresh your browser tab to reload changes after each build!
 
----
-
 ### 📤 Production Build
 
 To build the optimized userscript for sharing:
@@ -104,8 +103,6 @@ dist/script.prod.user.js
 ```
 
 You can upload this file to GitHub and link it on GreasyFork.
-
----
 
 ### 📁 Project Structure
 
