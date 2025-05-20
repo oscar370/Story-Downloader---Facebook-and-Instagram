@@ -219,7 +219,7 @@
 
       if (this.isFacebookPage) {
         const user = Array.from(
-          document.querySelectorAll('[style="--WebkitLineClamp: 1;"]')
+          document.querySelectorAll("span.xuxw1ft.xlyipyv")
         ).find(
           (e): e is HTMLElement => e instanceof HTMLElement && e.offsetWidth > 0
         );
