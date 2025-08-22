@@ -1,15 +1,15 @@
-# 📥 Story Downloader - Facebook & Instagram
+# Story Downloader - Facebook & Instagram
 
-🧩 A user script to download **stories (videos & images)** from Facebook and Instagram — supports both production and development modes!
+A user script to download **stories (videos & images)** from Facebook and Instagram — supports both production and development modes!
 
 ---
 
-## 🌐 For Users
+## For Users
 
-👉 **Install directly from GreasyFork:**  
-🔗 [https://greasyfork.org/en/scripts/507431-story-downloader-facebook-and-instagram](https://greasyfork.org/en/scripts/507431-story-downloader-facebook-and-instagram)
+**Install directly from GreasyFork:**  
+[https://greasyfork.org/en/scripts/507431-story-downloader-facebook-and-instagram](https://greasyfork.org/en/scripts/507431-story-downloader-facebook-and-instagram)
 
-✔️ **Features**:
+**Features**:
 
 - Works on Facebook and Instagram web
 - Downloads stories in one click
@@ -18,20 +18,20 @@
 
 ---
 
-## 🛠️ For Developers
+## For Developers
 
 If you want to contribute or run this script in development mode using **TypeScript**, follow these steps:
 
-### ⚙️ Requirements
+### Requirements
 
 - Node.js & npm
 - Tampermonkey (or similar user script manager)
 - A Chromium-based browser (Chrome, Edge, Brave, etc.)
 - A text editor (e.g. VSCode)
 
-### 📢 Important Tampermonkey Setup
+### Important Tampermonkey Setup
 
-✅ To use `file:///` paths in development:
+To use `file:///` paths in development:
 
 1. Go to your browser's **Extensions page**.
 2. **Enable Developer Mode.**
@@ -41,19 +41,19 @@ If you want to contribute or run this script in development mode using **TypeScr
 > This is required for Tampermonkey to load the script directly from your local machine.
 
 
-### 🚀 Clone the repository
+### Clone the repository
 ```bash
 git clone https://github.com/oscar370/Story-Downloader---Facebook-and-Instagram.git
 cd Story-Downloader---Facebook-and-Instagram
 ```
 
-### 📦 Install dependencies
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### 🧪 Development Mode
+### Development Mode
 
 1. Set your desired output path in a .env file at the project root:
 
@@ -61,7 +61,7 @@ npm install
 DEV_REQUIRE_PATH=file:///[your-path]/dist/script.dev.user.js
 ```
 
-> 📍 Use forward slashes / even on Windows.
+> Use forward slashes / even on Windows.
 
 2. Run the development watcher:
 
@@ -86,9 +86,9 @@ npm run dev
 // ==/UserScript==
 ```
 
-> 📍 Refresh your browser tab to reload changes after each build!
+> Refresh your browser tab to reload changes after each build!
 
-### 📤 Production Build
+### Production Build
 
 To build the optimized userscript for sharing:
 
@@ -104,7 +104,7 @@ dist/script.prod.user.js
 
 You can upload this file to GitHub and link it on GreasyFork.
 
-### 📁 Project Structure
+### Project Structure
 
 ```bash
 .
@@ -123,7 +123,7 @@ You can upload this file to GitHub and link it on GreasyFork.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Pull requests, issues, and suggestions are welcome!
 Just make sure to describe the change clearly and follow the coding style.
