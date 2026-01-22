@@ -3,7 +3,7 @@ node_modules/
 
 .env
 
-dist/script.dev.user.js
+dist
 
 package-lock.json
 

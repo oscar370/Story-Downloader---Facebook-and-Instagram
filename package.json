@@ -3,28 +3,28 @@
   "version": "1.0.0",
   "main": "story-downloader-user.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node build-dev-watch.js",
-    "build": "node build-prod.js"
+    "build": "NODE_ENV=production node esbuild.config.js",
+    "watch": "NODE_ENV=development node esbuild.config.js --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oscar370/Story-Downloader---Facebook-and-Instagram.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "oscar370",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/oscar370/Story-Downloader---Facebook-and-Instagram/issues"
   },
   "homepage": "https://github.com/oscar370/Story-Downloader---Facebook-and-Instagram#readme",
   "description": "",
   "devDependencies": {
-    "@types/node": "^22.15.18",
-    "esbuild": "^0.25.4",
-    "typescript": "^5.8.3"
+    "@types/node": "^25.0.9",
+    "@types/tampermonkey": "^5.0.5",
+    "esbuild": "^0.27.2",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
-    "dotenv": "^16.5.0"
+    "dotenv": "^17.2.3"
   }
 }
