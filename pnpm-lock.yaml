@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       dotenv:
-        specifier: ^17.2.3
-        version: 17.2.3
+        specifier: ^17.3.0
+        version: 17.3.0
     devDependencies:
       '@types/node':
         specifier: ^25.1.0
@@ -189,8 +189,8 @@ packages:
   '@types/tampermonkey@5.0.5':
     resolution: {integrity: sha512-ZWitwJH4T/jcQiynhc3I5DNiwlsDzVTKPXg6A8ltTw3SDuf0b00bNRSV0Z/yldnhhBi9e8g8vY/X3LVSQcaCKQ==}
 
-  dotenv@17.2.3:
-    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
+  dotenv@17.3.0:
+    resolution: {integrity: sha512-i3z5dx/8F45f+Dj0B/qG8oKip9luzyHz6dfJMOKG7zQW/12tT7CrIjs/0J10uNK/Z5O7O0UtfEmx6yFKRQCl4g==}
     engines: {node: '>=12'}
 
   esbuild@0.27.2:
@@ -292,7 +292,7 @@ snapshots:
 
   '@types/tampermonkey@5.0.5': {}
 
-  dotenv@17.2.3: {}
+  dotenv@17.3.0: {}
 
   esbuild@0.27.2:
     optionalDependencies:
