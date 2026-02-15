@@ -21,8 +21,8 @@ const ctx = esbuild.context({
 // @version      2.1.0
 // @description  Download stories (videos and images) from Facebook and Instagram.
 // @author       oscar370
-// @match        *.facebook.com/*
-// @match        *.instagram.com/*
+// @match        *://*.facebook.com/*
+// @match        *://*.instagram.com/*
 // @grant        none
 // @license      GPL3
 // ==/UserScript==`,
