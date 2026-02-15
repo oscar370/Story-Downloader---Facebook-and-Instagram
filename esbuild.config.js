@@ -18,7 +18,7 @@ const ctx = esbuild.context({
     js: `// ==UserScript==
 // @name         Story Downloader - Facebook and Instagram
 // @namespace    https://github.com/oscar370
-// @version      2.1.0
+// @version      2.2.0
 // @description  Download stories (videos and images) from Facebook and Instagram.
 // @author       oscar370
 // @match        *://*.facebook.com/*
