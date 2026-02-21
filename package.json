@@ -8,23 +8,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oscar370/Story-Downloader---Facebook-and-Instagram.git"
+    "url": "git+https://github.com/oscar370/story-downloader-facebook-and-instagram.git"
   },
   "keywords": [],
   "author": "oscar370",
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/oscar370/Story-Downloader---Facebook-and-Instagram/issues"
+    "url": "https://github.com/oscar370/story-downloader-facebook-and-instagram/issues"
   },
-  "homepage": "https://github.com/oscar370/Story-Downloader---Facebook-and-Instagram#readme",
+  "homepage": "https://github.com/oscar370/story-downloader-facebook-and-instagram#readme",
   "description": "",
   "devDependencies": {
-    "@types/node": "^25.1.0",
+    "@types/node": "^25.3.0",
     "@types/tampermonkey": "^5.0.5",
-    "esbuild": "^0.27.2",
+    "esbuild": "^0.27.3",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.3.1"
   }
 }

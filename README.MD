@@ -1,14 +1,12 @@
 # Story Downloader - Facebook & Instagram
 
-A user script to download **stories (videos & images)** from Facebook and Instagram — supports both production and development modes!
-
----
+A user script to download **stories (videos & images)** from Facebook and Instagram
 
 ## Install
 
 [Install directly from GreasyFork](https://greasyfork.org/en/scripts/507431-story-downloader-facebook-and-instagram)
 
-[Or use the file in release](https://github.com/oscar370/Story-Downloader---Facebook-and-Instagram/releases/latest/download/script.user.js)
+[Or use the file in release](https://github.com/oscar370/story-downloader-facebook-and-instagram/releases/latest/download/script.user.js)
 
 **Features**:
 
@@ -16,8 +14,6 @@ A user script to download **stories (videos & images)** from Facebook and Instag
 - Downloads stories in one click
 - Automatically detects videos and images
 - Lightweight and open-source
-
----
 
 ## Development
 
