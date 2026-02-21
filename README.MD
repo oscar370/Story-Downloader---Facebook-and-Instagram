@@ -38,7 +38,7 @@ pnpm i
 Start the script in development mode
 
 ```bash
-pnpm watch
+pnpm dev
 ```
 
 The script will be created inside `dist`, copy it to Tampermonkey.
