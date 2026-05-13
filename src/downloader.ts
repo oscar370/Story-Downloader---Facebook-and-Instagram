@@ -56,7 +56,7 @@ function findVideo() {
  * specific prop names. It may break with future React or Facebook updates.
  */
 function searchVideoSource(video: HTMLVideoElement): string | null {
-  if (!video.currentSrc.startsWith("blob")) {
+  if (video.currentSrc && !video.currentSrc.startsWith("blob")) {
     return video.currentSrc;
   }
 

@@ -1,5 +1,5 @@
 {
-  description = "Node.js and pnpm development environment";
+  description = "Node.js and pnpm";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -19,10 +19,6 @@
           nodejs
           nodePackages.pnpm
         ];
-
-        shellHook = ''
-          echo "Nix environment loaded: Node $(node -v), pnpm $(pnpm -v)"
-        '';
       };
     });
 }

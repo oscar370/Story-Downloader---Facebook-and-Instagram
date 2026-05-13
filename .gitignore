@@ -11,3 +11,5 @@ package-lock.json
 *.tmp
 
 .DS_Store
+
+.direnv
