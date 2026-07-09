@@ -22,7 +22,7 @@
     "@types/node": "^25.9.3",
     "@types/tampermonkey": "^5.0.5",
     "esbuild": "^0.28.1",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "dotenv": "^17.4.2"
