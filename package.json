@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/node": "^26.1.1",
     "@types/tampermonkey": "^5.0.5",
-    "esbuild": "^0.28.1",
+    "esbuild": "^0.28.2",
     "typescript": "^7.0.2"
   },
   "dependencies": {
