@@ -16,8 +16,8 @@ importers:
         specifier: ^26.2.0
         version: 26.2.0
       '@types/tampermonkey':
-        specifier: ^5.0.5
-        version: 5.0.5
+        specifier: ^5.5.0
+        version: 5.5.0
       esbuild:
         specifier: ^0.28.2
         version: 0.28.2
@@ -186,8 +186,8 @@ packages:
   '@types/node@26.2.0':
     resolution: {integrity: sha512-5IviulTZeRNp2vAJ514cc/HUlY5nZ9fCbq9DMyC52BrhFZACo3nI0R7qBxhQmo/d27NFe96ur/b7Wwxklda+kg==}
 
-  '@types/tampermonkey@5.0.5':
-    resolution: {integrity: sha512-ZWitwJH4T/jcQiynhc3I5DNiwlsDzVTKPXg6A8ltTw3SDuf0b00bNRSV0Z/yldnhhBi9e8g8vY/X3LVSQcaCKQ==}
+  '@types/tampermonkey@5.5.0':
+    resolution: {integrity: sha512-I90oAlYhgP7DFr5LbwdvPNSd51SULGT6zLw6A+nK4FtRlgDsAYtKShWhsxjmU6LzSWI2XbPq8oAQE/ckZHW2LQ==}
 
   '@typescript/typescript-aix-ppc64@7.0.2':
     resolution: {integrity: sha512-MTKKkWB7p/0E9xi1d1tHtZ5PiLkGEMIq88pK2CubZjOsLtYTLqhgIgi6zepFa+9GHZ6h05NMCkQxGKiPXMxXtQ==}
@@ -410,7 +410,7 @@ snapshots:
     dependencies:
       undici-types: 8.3.0
 
-  '@types/tampermonkey@5.0.5': {}
+  '@types/tampermonkey@5.5.0': {}
 
   '@typescript/typescript-aix-ppc64@7.0.2':
     optional: true
