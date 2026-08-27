@@ -20,7 +20,7 @@
   "description": "",
   "devDependencies": {
     "@types/node": "^26.2.0",
-    "@types/tampermonkey": "^5.0.5",
+    "@types/tampermonkey": "^5.5.0",
     "esbuild": "^0.28.2",
     "typescript": "^7.0.2"
   },
