@@ -19,7 +19,7 @@
   "homepage": "https://github.com/oscar370/story-downloader-facebook-and-instagram#readme",
   "description": "",
   "devDependencies": {
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.4.0",
     "@types/tampermonkey": "^5.0.5",
     "esbuild": "^0.28.2",
     "typescript": "^7.0.2"
